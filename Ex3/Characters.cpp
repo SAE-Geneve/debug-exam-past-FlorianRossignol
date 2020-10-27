@@ -14,9 +14,9 @@
 Character::Character()
 {
     this->health_ = getHealth();
-    this->attack_ = getAttack;
+    this->attack_ = getAttack();
 	this->defense_ = getDefense();
-    this->strength_ = getStrength;
+    this->strength_ = getStrength();
 }
 
 bool Character::isAlive()
@@ -28,9 +28,9 @@ bool Character::isAlive()
 return false;
 }
 
-void Character::takeDamage(int damage)
+void Character::takeDamage()
 {
-    health_ -= damage;
+    health_ -= attack_;
 }
 
 
@@ -67,18 +67,21 @@ void Monster::fight(Hero* hero)
 
 void Monster::death()
 {
-    std::cout << "Yet another dead monster!\n";
+	if(health_ <0)
+	{
+        std::cout << "Yet another dead monster!\n";
+	}
 }
 
 //////////Hero////////////
 
 Hero::Hero(): Character()
 {
-
+  
 }
 void Hero::fight(Monster* monster)
 {
-int damage = attack_/monster->getDefense() *strength_;
+int damage = attack_/defense_ *strength_;
     if(damage < 0)
         damage = 0;
     if(damage > strength_);
@@ -89,5 +92,9 @@ int damage = attack_/monster->getDefense() *strength_;
 }
 void Hero::death()
 {
-    std::cout << "The hero is dead, long live the hero!\n";
+	if (health_ <0)
+	{
+        std::cout << "The hero is dead, long live the hero!\n";
+    }
 }
+    

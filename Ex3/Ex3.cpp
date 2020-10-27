@@ -13,24 +13,27 @@
 int main(
 )
 {
-    Hero hero = Hero(100,10,5,2);
-    std::list<Monster> monsters = {
-        Monster(10, 1,      1,5),
-Monster(20,         5, 5,           5),
-                Monster(30,     10,10,5)
-    };
-    
-    for(std::vector<Hero>::iterator monsterIt = monsters->begin();
-monsterIt != monsters->end(); monsterIt++)
+    Monster monster1 = Monster(10, 4, 1, 4);
+    Monster monster2 = Monster(20, 5, 5, 5);
+    Monster monster3 = Monster(30, 6, 10, 6);
+    Hero hero = Hero (100,10,5,2);
+    std::list<Monster> monsters;
+    auto it = monsters.begin();
+    monsters.insert(monster1);
+    monsters.insert(monster2);
+    monsters.insert(monster3);
+    for(std::vector<Hero>::iterator monsterIt = monsters.begin();
+monsterIt != monsters.end(); monsterIt++)
     {
-        while (hero.isAlive() || monster.isAlive());
+        while (hero.isAlive() || Monster.isAlive());
         {
             hero.fight(monsterIt);
             monsterIt->fight(hero);
         }
         //If the monster is dead, meaning not alive, he dies!
-        if(!monsterIt.isAlive()){
-            monsterIt.death();
+        if(!Monster.isAlive())
+        {
+            Monster.death();
         }
         //Windows specific
         if(!hero.isAlive())

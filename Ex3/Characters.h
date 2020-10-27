@@ -19,8 +19,8 @@ public:
     void takeDamage();
     bool isAlive();
     virtual void death() = 0;
-    int getAttack;
-    int getStrength;
+    int getAttack();
+    int getStrength();
 	int getHealth();
     int getDefense();
 protected:
@@ -30,7 +30,7 @@ protected:
     int strength_;
 };
 
-class Monster : Character
+class Monster : public Character
 {
     
 public:
@@ -40,7 +40,7 @@ public:
     void death();
 };
 
-class Hero : Character
+class Hero : public Character
 {
 public:
     Hero();
