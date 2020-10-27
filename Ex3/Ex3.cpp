@@ -6,13 +6,14 @@
 //
 
 #include <iostream>
-#include <lisp>
-#include <Character.h"
+#include <list>
+#include <vector>
+#include "Characters.h"
 
 int main(
 )
 {
-    Hero hero = new Hero(10,            10,10,      10, 0.5f);
+    Hero hero = Hero(100,10,5,2);
     std::list<Monster> monsters = {
         Monster(10, 1,      1,5),
 Monster(20,         5, 5,           5),
@@ -22,7 +23,7 @@ Monster(20,         5, 5,           5),
     for(std::vector<Hero>::iterator monsterIt = monsters->begin();
 monsterIt != monsters->end(); monsterIt++)
     {
-        while (hero.isAlive() || monsterIt.isAlive());
+        while (hero.isAlive() || monster.isAlive());
         {
             hero.fight(monsterIt);
             monsterIt->fight(hero);

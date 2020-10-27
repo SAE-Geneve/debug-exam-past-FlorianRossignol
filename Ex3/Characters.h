@@ -6,19 +6,36 @@
 //  Copyright © 2016 Elias Farhan. All rights reserved.
 //
 
-#ifndef Characters_hpp
-#define Characters_hpp
+#pragma once
 
-#include <iostraem>
+#include <iostream>
 
-class Character;
+class Hero;
 
-class Monster : public Character
+class Character
+{
+public:
+    Character();
+    void takeDamage();
+    bool isAlive();
+    virtual void death() = 0;
+    int getAttack;
+    int getStrength;
+	int getHealth();
+    int getDefense();
+protected:
+    int health_;
+    int attack_;
+    int defense_;
+    int strength_;
+};
+
+class Monster : Character
 {
     
 public:
-    Monster(int,int,int,int);
-    void takeDamage(int damage);
+    Monster();
+    void takeDamage();
     void fight(Hero*);
     void death();
 };
@@ -26,28 +43,8 @@ public:
 class Hero : Character
 {
 public:
-    Hero(int,int,int,int);
-    void takeDamage(int damage);
+    Hero();
+    void takeDamage();
     void fight(Monster*);
     void death();
-};)
-
-class Character
-{
-public:
-    Character(int,int,int,int);
-    void takeDamage(int damage);
-    bool isAlive() = 0;
-    virtual void death() = 0;
-    
-    int getHealth();
-    int getDefense();
-protected:
-    int haelth;
-    int attack;
-    int defense;
 };
-
-
-
-#endif /* Characters_hpp */
